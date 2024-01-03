@@ -40,7 +40,7 @@ function createFeatures(data) {
         let colors = [
             "#e6e6ff", "#b3b3ff", "#9999ff", "#6666ff", "#3333ff", "#0000cc"]
 
-        //return coloor based on depth 
+        //return color based on depth 
         if (depth < 10) {
             return colors[0]
         }
@@ -70,7 +70,7 @@ function createFeatures(data) {
 
     //create map
     createMap(earthquakes);
-}
+};
 
 function createMap(eqData) {
 
@@ -104,23 +104,22 @@ function createMap(eqData) {
     //creates the legend
 
     let legend = L.control({ position: 'bottomright' });
-
-    legend.onAdd = function (myMap) {
+    legend.onAdd = function () {
         let div = L.DomUtil.create('div', 'info legend');
         let depthLabels = ['<10 km', '10-20 km', '20-50 km', '50-75 km', '75-100 km', '100+ km'];
         let colors = ["#e6e6ff", "#b3b3ff", "#9999ff", "#6666ff", "#3333ff", "#0000cc"];
 
-        div.innerHTML += '<h4>Depth</h4>';
-        
+        // Add a label to the legend
+        div.innerHTML = '<strong>Depth Scale:</strong><br>';
+
+        // Loop through the legend labels and colors
         for (let i = 0; i < depthLabels.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + colors[i] + '"></i> ' +
-                depthLabels[i] + (depthLabels[i + 1] ? '<br>' : '+');
+                '<i style="background:' + colors[i] + '; width: 20px; height: 20px;"></i> ' +
+                depthLabels[i] + '<br>';
         }
-
         return div;
     };
-
     legend.addTo(myMap);
 
     //add a title to the map
@@ -133,4 +132,6 @@ function createMap(eqData) {
         return div;
     };
     titleControl.addTo(myMap);
-}
+};
+
+
