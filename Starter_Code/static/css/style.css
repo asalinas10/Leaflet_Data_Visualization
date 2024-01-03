@@ -9,3 +9,21 @@ html {
   height: 100%;
 }
 
+.info.legend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+.info.legend i {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 8px;
+}
